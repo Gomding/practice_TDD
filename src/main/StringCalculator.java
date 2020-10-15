@@ -2,10 +2,14 @@ package main;
 
 public class StringCalculator {
     public static int splitAndSum(String text) {
-        if (text == null || text.isEmpty()) {
+        if (isNullorEmpty(text)) {
             return 0;
         }
         return sum(toInts(text.split(",|:")));
+    }
+    
+    private static boolean isNullorEmpty(String text) {
+        return text == null || text.isEmpty();
     }
 
     private static int sum(int[] values) {
