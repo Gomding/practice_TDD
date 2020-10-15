@@ -25,4 +25,9 @@ public class StringCalculatorTest {
     public void 값_세개() {
         assertEquals(StringCalculator.splitAndSum("1,3:2"), 6);
     }
+
+    @Test(expected = RuntimeException.class)
+    public void 음수값() {
+        StringCalculator.splitAndSum("-1,-2:3");
+    }
 }

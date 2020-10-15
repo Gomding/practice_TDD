@@ -1,11 +1,13 @@
 package main;
 
+import main.to.Positive;
+
 public class StringCalculator {
     public static int splitAndSum(String text) {
         if (isNullorEmpty(text)) {
             return 0;
         }
-        return sum(toInts(splitText(text)));
+        return sum(toPositives(splitText(text)));
     }
 
     private static String[] splitText(String text) {
@@ -16,29 +18,19 @@ public class StringCalculator {
         return text == null || text.isEmpty();
     }
 
-    private static int sum(int[] values) {
-        int result = 0;
-        for (int value : values) {
-            result += value;
+    private static int sum(Positive[] numbers) {
+        Positive result = new Positive(0);
+        for (Positive number : numbers) {
+            result = result.add(number);
         }
-        return result;
+        return result.getNumber();
     }
 
-    private static int[] toInts(String[] values) {
-        int size = values.length;
-        int[] intValues = new int[size];
-        for (int i = 0; i < size; i++) {
-            intValues[i] = toInt(values[i]);
+    private static Positive[] toPositives(String[] values) {
+        Positive[] numbers = new Positive[values.length];
+        for (int i = 0; i < values.length; i++) {
+            numbers[i] = new Positive(values[i]);
         }
-        return intValues;
+        return numbers;
     }
-
-    private static int toInt(String value) {
-        int number = Integer.parseInt(value);
-        if (number < 0) {
-            throw new RuntimeException();
-        }
-        return number;
-    }
-
 }
