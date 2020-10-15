@@ -64,4 +64,5 @@ private boolean isMaxPosition(Car car) {
 private boolean isMaxPosition(Car car) {
 	return car.isMaxPosition(maxDistance);
 }
+```
 이렇게 변경
