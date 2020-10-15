@@ -5,8 +5,7 @@ public class StringCalculator {
         if (text == null || text.isEmpty()) {
             return 0;
         }
-        String[] values = text.split(",|:");
-        return sum(toInts(values));
+        return sum(toInts(text.split(",|:")));
     }
 
     private static int sum(int[] values) {
