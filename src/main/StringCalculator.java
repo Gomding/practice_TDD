@@ -6,15 +6,24 @@ public class StringCalculator {
             return 0;
         }
         String[] values = text.split(",|:");
-        return sum(values);
+        return sum(toInts(values));
     }
 
-    private static int sum(String[] values) {
+    private static int sum(int[] values) {
         int result = 0;
-        for (String value : values) {
-            result += Integer.parseInt(value);
+        for (int value : values) {
+            result += value;
         }
         return result;
+    }
+
+    private static int[] toInts(String[] values) {
+        int size = values.length;
+        int[] intValues = new int[size];
+        for (int i = 0; i < size; i++) {
+            intValues[i] = Integer.parseInt(values[i]);
+        }
+        return intValues;
     }
 
 }
