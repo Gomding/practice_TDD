@@ -28,9 +28,17 @@ public class StringCalculator {
         int size = values.length;
         int[] intValues = new int[size];
         for (int i = 0; i < size; i++) {
-            intValues[i] = Integer.parseInt(values[i]);
+            intValues[i] = toInt(values[i]);
         }
         return intValues;
+    }
+
+    private static int toInt(String value) {
+        int number = Integer.parseInt(value);
+        if (number < 0) {
+            throw new RuntimeException();
+        }
+        return number;
     }
 
 }
