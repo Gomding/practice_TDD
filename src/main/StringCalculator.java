@@ -5,9 +5,13 @@ public class StringCalculator {
         if (isNullorEmpty(text)) {
             return 0;
         }
-        return sum(toInts(text.split(",|:")));
+        return sum(toInts(splitText(text)));
     }
-    
+
+    private static String[] splitText(String text) {
+        return text.split(",|:");
+    }
+
     private static boolean isNullorEmpty(String text) {
         return text == null || text.isEmpty();
     }
