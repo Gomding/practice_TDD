@@ -1,7 +1,7 @@
 package main;
 
 public class StringCalculator {
-    public int splitAndSum(String text) {
+    public static int splitAndSum(String text) {
         int result = 0;
         if (text == null || text.isEmpty()) {
             result = 0;
